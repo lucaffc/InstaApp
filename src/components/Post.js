@@ -80,13 +80,19 @@ export default class Post extends Component<{}> {
 
       adicionaComentario(){
 
-      const novaLista = [...this.state.comentarios, {
+      const novaLista = [...this.state.foto.comentarios, {
         id: this.state.valorComentario,
         login: 'meuUsuario',
         texto: this.state.valorComentario
       }];
 
+      const fotoAtualizada = {
+        ...this.state.foto,
+        comentarios:novaLista
+      }
 
+      this.setState({foto: fotoAtualizada});
+      this.inputComentario.clear();
   }
 
   render() {
