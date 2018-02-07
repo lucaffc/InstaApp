@@ -79,6 +79,8 @@ export default class Post extends Component<{}> {
   }
 
       adicionaComentario(){
+       if(this.state.valorComentario === '')
+       return;
 
       const novaLista = [...this.state.foto.comentarios, {
         id: this.state.valorComentario,
@@ -91,7 +93,7 @@ export default class Post extends Component<{}> {
         comentarios:novaLista
       }
 
-      this.setState({foto: fotoAtualizada});
+      this.setState({foto: fotoAtualizada, valorComentario: ''});
       this.inputComentario.clear();
   }
 
